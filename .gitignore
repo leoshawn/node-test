@@ -1,0 +1,10 @@
+node_modules
+dist
+.tmp
+.sass-cache
+app/components
+.idea
+*.iml
+build/pages/index/page/index-dep*.js
+build/pages/case/page/index-dep*.js
+build/pages/show/page/index-dep*.js
