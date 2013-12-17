@@ -1,18 +1,13 @@
-function route(handle, pathname, response, request) {
-    console.log('About to route a request for ' + pathname);
-    if (typeof handle[pathname] === 'function') {
-        handle[pathname](response, request);
-    } else {
-        console.log("No request handler found for " + pathname);
-        response.writeHead(404, {"Content-Type":"text/html"});
-        response.write('404 not Found. Redirecting to index');
-        response.write('<script>' +
-                'setTimeout(function(){' + 
-                'location.href = "./"' +
-                '}, 1000); ' +
-                '</script>');
-        response.end();
-    }
+function route(pathname, handle, response, request/*, postData*/) {
+  console.log('About to route a request for ' + pathname);
+  if (typeof handle[pathname] === 'function') {
+    return handle[pathname](response, request/*, postData*/);
+  } else {
+    console.log('No request handler found for ' + pathname);
+    response.writeHead(404, {"Content-type": "text/plain"});
+    response.write( "404 Not Found");
+    response.end();
+  }
 }
 
 exports.route = route;

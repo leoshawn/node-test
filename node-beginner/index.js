@@ -1,11 +1,12 @@
-var server = require('./eg1-server');
-var router = require('./eg1-router');
-var requestHandlers = require('./eg1-requestHandlers');
+var server = require('./server');
+var router = require('./router');
+var requestHandlers = require('./requestHandlers');
 
+// 通过javascript对象来处理不同URL路径请求
 var handle = {};
-handle['/'] = requestHandlers.start;
-handle['/start'] = requestHandlers.start;
-handle['/upload'] = requestHandlers.upload;
-handle['/show'] = requestHandlers.show;
+handle["/"] = requestHandlers.start;
+handle["/start"] = requestHandlers.start;
+handle["/upload"] = requestHandlers.upload;
+handle["/show"] = requestHandlers.show;
 
 server.start(router.route, handle);
