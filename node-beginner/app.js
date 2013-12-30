@@ -1,7 +1,7 @@
 var PORT = process.argv[2] || 8000;
 var http = require('http');
 var url = require('url');
-var fs = require('fss');
+var fs = require('fs');
 var path = require('path');
 var mime = require('./mime').types;
 var config = require('./config');
